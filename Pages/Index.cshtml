@@ -1,0 +1,59 @@
+﻿@page
+@model SignalRChatApp.Pages.IndexModel
+@{
+    ViewData["Title"] = "Real-Time Chat";
+}
+
+<!-- Bootstrap CSS (from CDN) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">🚀 Real-Time Chat App</h2>
+
+    <div class="card p-4 shadow-sm">
+        <div class="mb-3 row">
+            <div class="col-md-4">
+                <input class="form-control" id="userInput" placeholder="Your Name" />
+            </div>
+            <div class="col-md-6">
+                <input class="form-control" id="messageInput" placeholder="Type your message..." />
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-success w-100" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+
+        <ul id="messagesList" class="list-group"></ul>
+    </div>
+</div>
+
+<!-- SignalR JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chathub")
+        .build();
+
+    connection.on("ReceiveMessage", function (user, message) {
+        const li = document.createElement("li");
+        li.classList.add("list-group-item");
+        li.innerHTML = `<strong>${user}:</strong> ${message}`;
+        document.getElementById("messagesList").appendChild(li);
+    });
+
+    connection.start().catch(err => console.error(err.toString()));
+
+    function sendMessage() {
+        const user = document.getElementById("userInput").value.trim();
+        const message = document.getElementById("messageInput").value.trim();
+
+        if (!user || !message) {
+            alert("Both fields are required.");
+            return;
+        }
+
+        connection.invoke("SendMessage", user, message).catch(err => console.error(err.toString()));
+        document.getElementById("messageInput").value = '';
+    }
+</script>
