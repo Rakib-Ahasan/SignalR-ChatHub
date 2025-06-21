@@ -31,3 +31,4 @@ F:\All About C#\SginalRChatHub\obj\Debug\net8.0\refint\SginalRChatHub.dll
 F:\All About C#\SginalRChatHub\obj\Debug\net8.0\SginalRChatHub.pdb
 F:\All About C#\SginalRChatHub\obj\Debug\net8.0\SginalRChatHub.genruntimeconfig.cache
 F:\All About C#\SginalRChatHub\obj\Debug\net8.0\ref\SginalRChatHub.dll
+F:\All About C#\SginalRChatHub\obj\Debug\net8.0\SginalRChatHub.sourcelink.json

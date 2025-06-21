@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SginalRChatHub")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01740b1c34fa2d08547372d5a9077e697ea9437d")]
 [assembly: System.Reflection.AssemblyProductAttribute("SginalRChatHub")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SginalRChatHub")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
